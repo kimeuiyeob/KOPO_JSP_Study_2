@@ -1,0 +1,98 @@
+package common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.ServletContext;
+
+public class JDBConnecter {
+
+	public Connection con; // DB연결
+	public Statement stmt; // 파라미터 X 쿼리문
+	public PreparedStatement psmt; // 파라미터 O 쿼리문
+	public ResultSet rs; // 쿼리문 결과 저장
+
+	public JDBConnecter() {
+
+		String driver = "oracle.jdbc.OracleDriver";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String userid = "kopo07";
+		String passwd = "1234";
+
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, userid, passwd);
+			System.out.println("연결 성공!!");
+		} catch (ClassNotFoundException e) {
+			e.getStackTrace();
+		} catch (SQLException e) {
+			e.getStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (psmt != null)
+					psmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.getStackTrace();
+			}
+		}
+	}
+
+	// ====================================================================
+
+	public JDBConnecter(String driver, String url, String id, String pw) {
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, id, pw);
+			System.out.println("DB 연결 성공!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// ====================================================================
+
+	public JDBConnecter(ServletContext application) {
+		
+		String driver = application.getInitParameter("OracleDriver");
+		String url = application.getInitParameter("OracleURL");
+		String id = application.getInitParameter("OracleId");
+		String pw = application.getInitParameter("OraclePw");
+
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, id, pw);
+			System.out.println("DB 연결 성공!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// ====================================================================
+
+	public void JDBConnecterClose() {
+		try {
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (psmt != null)
+				psmt.close();
+			if (con != null)
+				con.close();
+			System.out.println("DB 닫기 성공!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

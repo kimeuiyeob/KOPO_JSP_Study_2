@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="common.*"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<%
+	Map<String, PersonDTO> map = (Map<String, PersonDTO>) application.getAttribute("map");
+
+	for (Map.Entry<String, PersonDTO> entry : map.entrySet()) {
+		out.print("키 값 : " + entry.getKey() + " , "  + " 밸류 값 : " + entry.getValue());
+	}
+	%>
+
+</body>
+</html>

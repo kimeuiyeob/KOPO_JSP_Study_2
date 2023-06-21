@@ -1,0 +1,61 @@
+package common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class JDBConnecter {
+
+	public Connection con; // DB연결
+	public Statement stmt; // 파라미터 X 쿼리문
+	public PreparedStatement psmt; // 파라미터 O 쿼리문
+	public ResultSet rs; // 쿼리문 결과 저장
+
+	public static void main(String[] args) throws SQLException {
+
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@localhost:8081:orcl";
+		String userid = "kopo07";
+		String passwd = "1234";
+
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, userid, passwd);
+
+			String sql = "select * from member";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				int deptno = rs.getString(1);
+				String dname = rs.getString("dname");
+				String loc = rs.getString("loc");
+				System.out.println(deptno + "\t" + dname + "\t" + loc);
+			}
+		} catch (ClassNotFoundException e) {
+			e.getStackTrace();
+		} catch (SQLException e) {
+			e.getStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.getStackTrace();
+			}
+		}
+
+	}
+
+}

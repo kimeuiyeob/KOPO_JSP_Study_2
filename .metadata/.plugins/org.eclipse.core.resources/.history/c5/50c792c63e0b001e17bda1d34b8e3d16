@@ -1,0 +1,16 @@
+package prac;
+
+public class asd extends Thread {
+	
+	public void waitPlease() {
+		
+		Thread thr = new Thread();
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

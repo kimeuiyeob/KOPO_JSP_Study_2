@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>파람을 한번 받아볼까요~~~</h3>
+	<h3>포워드 쿼리스트링입니다.</h3>
+	<jsp:useBean id="person" class="common.PersonDTO" scope="request"></jsp:useBean>
+
+	이름 :
+	<jsp:getProperty property="name" name="person" />
+	<br> 나이 :
+	<jsp:getProperty property="age" name="person" />
+	<br>
+
+	<br>
+	<br>
+	<br> 본명 :
+	<%=request.getParameter("param1")%>
+	<br> 출생 :
+	<%=request.getParameter("param2")%>
+	<br> 특징 :
+	<%=request.getParameter("param3")%>
+	<br>
+
+
+	<jsp:include page="Include/ParamInclude.jsp">
+		<jsp:param value="서울" name="loc1" />
+		<jsp:param value="잠실" name="loc2" />
+	</jsp:include>
+
+
+</body>
+</html>

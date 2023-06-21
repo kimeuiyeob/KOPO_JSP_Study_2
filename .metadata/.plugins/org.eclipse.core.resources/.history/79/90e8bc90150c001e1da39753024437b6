@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ page import="common.*"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%
+	pageContext.setAttribute("pageInt", 10);
+	pageContext.setAttribute("pageStr", "페이지저장");
+	pageContext.setAttribute("pagePerson", new PersonVO("kopo07",50));
+%>
+
+<%="pageInt : " + pageContext.getAttribute("pageInt")%>
+<%="pageStr : " + pageContext.getAttribute("pageStr")%>
+
+<%
+PersonVO person = (PersonVO)pageContext.getAttribute("pagePerson");
+out.print("pagePerson 이름 : " + person.getName());
+out.print("pagePerson 나이 : " + person.getAge());
+%>
+
+
+</body>
+</html>

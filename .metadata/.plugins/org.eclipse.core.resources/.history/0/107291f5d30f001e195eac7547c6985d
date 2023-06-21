@@ -1,0 +1,10 @@
+package dto;
+
+public class memberDto {
+	
+	private String id;
+	private String pass;
+	private String name;
+	private String regidate;
+	
+}

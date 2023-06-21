@@ -1,0 +1,31 @@
+package common;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+
+import org.apache.tomcat.jdbc.pool.DataSource;
+
+public class DBConnectionPool {
+
+	public Connection con; // DB연결
+	public Statement stmt; // 파라미터 X 쿼리문
+	public PreparedStatement psmt; // 파라미터 O 쿼리문
+	public ResultSet rs; // 쿼리문 결과 저장
+
+	public DBConnectionPool() {
+		
+		//컨넥션 풀 얻어오기
+		Context initCtx = new InitialContext();
+		Context ctx = (Context)initCtx.lookup("java:comp/env");
+		DataSource source = (DataSource)ctx.lookup("dbcp_myoracle");
+		
+		
+		
+	}
+
+}

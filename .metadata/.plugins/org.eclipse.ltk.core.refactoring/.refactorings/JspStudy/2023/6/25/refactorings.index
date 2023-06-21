@@ -1,0 +1,21 @@
+1687134712491	Rename type 'PersonVO'
+1687135067275	Rename resource 'pageInclude.jsp'
+1687242232101	Delete element
+1687304286952	Move 'getAjax.jsp' to 'webapp'
+1687309979057	Rename resource 'loginForm.jsp'
+1687310266172	Delete element
+1687311302513	Rename type 'userDto'
+1687311442908	Rename type 'memeberDao'
+1687311486947	Rename compilation unit 'memberDao.java'
+1687311490952	Rename type 'memberDto'
+1687318652247	Move compilation unit
+1687318984417	Move compilation unit
+1687322245794	Rename resource 'Common'
+1687323637486	Rename resource 'include'
+1687327128869	Rename resource 'JavaBeanMain.jsp'
+1687331410073	Delete element
+1687332037034	Delete element
+1687332076097	Copy package
+1687332080115	Delete element
+1687332161488	Delete element
+1687332177261	Rename package 'board'

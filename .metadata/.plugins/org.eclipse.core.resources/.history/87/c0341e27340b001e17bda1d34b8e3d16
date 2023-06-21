@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+.one{
+	height : 100px;
+}
+</style>
+<body>
+
+	<h1>자리 배치도</h1>
+
+	<span>
+		<img class="one" src="one.png"><img class="one" src="one.png">
+		<img src="one.png"><img src="one.png" >
+	</span>
+	<div>
+		<img src="table.png" style="width: 460px"> 
+		<img src="table.png" style="width: 460px"> 
+	</div>
+	<span>
+		<img class="one" src="one.png"><img class="one" src="one.png">
+		<img class="one" src="one.png"><img class="one" src="one.png">
+	</span>
+	
+	<br>
+	
+	<span>
+		<img class="one" src="one.png"><img src="one.png">
+		<img class="one" src="one.png"><img src="one.png">
+	</span>
+	<div>
+		<img src="table.png" style="width: 460px"> 
+		<img src="table.png" style="width: 460px"> 
+	</div>
+	<span>
+		<img class="one" src="one.png"><img class="one" src="one.png">
+		<img class="one" src="one.png"><img class="one" src="one.png">
+	</span>
+
+
+
+</body>
+</html>

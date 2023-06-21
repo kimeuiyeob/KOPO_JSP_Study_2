@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$function(){
+		$("#goAjax()").click(function() {
+			
+			var id = $("#id").val();
+			var pw = $("#pw").val();
+			
+			let datas = {id : id,
+				 pw : pw},
+				 
+			$.ajax({
+				url : "getAjax.jsp",
+				type : "post",
+				data : datas,
+				success : function() {
+					console.log("성공");
+				},
+				error :  function(request , status, error) {
+					console.log(request);
+					console.log(status);
+					console.log(error);
+				}
+			}
+				 	
+			
+		});
+	}
+</script>
+
+<body>
+
+	<form>
+		<input type="text" name="id" id="id" placeholder="아이디를 입력해주세요"> <input type="password" name="pw" id="pw"
+			placeholder="비밀번호를 입력해주세요">
+	</form>
+	<button type="button" id="goAjax()">전송</button>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+package utils;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
+public class CookieManager {
+	
+	public static void makeCookie(HttpServletResponse resp, String cookieName, String cookieVal, int cookieTime) {
+		
+		Cookie cookie = new Cookie(cookieName,cookieVal);
+		
+		cookie.setPath("/");
+		cookie.setMaxAge(cookieTime);
+		resp.addCookie(cookie);
+		
+		
+	}
+
+}

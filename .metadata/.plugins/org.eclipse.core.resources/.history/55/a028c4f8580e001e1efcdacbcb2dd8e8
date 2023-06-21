@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>cookie</title>
+</head>
+<body>
+
+	<h3>쿠키 설정하기</h3>
+	<%
+	//쿠키 만들기
+	Cookie cookie = new Cookie("cookie","의엽쿠키");
+	
+	String uri = request.getContextPath();
+	cookie.setPath(uri);
+	
+	%>
+</body>
+</html>

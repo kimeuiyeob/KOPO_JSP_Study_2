@@ -1,0 +1,13 @@
+package model1;
+
+import javax.servlet.ServletContext;
+
+import common.JDBConnecter;
+
+public class BoardDao extends JDBConnecter{
+	
+	public BoardDao(ServletContext appliction) {
+		super(appliction);
+	}
+
+}

@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ page import="common.*"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>페이지 값 출력하기</h3>
+
+	<%
+	pageContext.setAttribute("pageInt", 10);
+	pageContext.setAttribute("pageStr", "페이지저장");
+	pageContext.setAttribute("pagePerson", new PersonDTO("kopo07", 50));
+	%>
+
+	<%
+	int pPageInt = (Integer) pageContext.getAttribute("pageInt");
+	String pString = pageContext.getAttribute("pageStr").toString();
+	PersonDTO pPerson = (PersonDTO) (pageContext.getAttribute("pagePerson"));
+	%>
+
+
+	<%
+	PersonDTO person = (PersonDTO) pageContext.getAttribute("pagePerson");
+	out.print("pagePerson 이름 : " + person.getName());
+	out.print("pagePerson 나이 : " + person.getAge());
+	%>
+
+
+	<h3>include 된 페이지에서 출력값 확인</h3>
+	<%-- <%@ include file="PageInclude.jsp" %> --%>
+
+	<h3>단순 페이지 이동후 pageContext 데이터 확인</h3>
+	<a href="PageLocation.jsp">PageLocation.jsp 바로 가기</a>
+
+</body>
+</html>

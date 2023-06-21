@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$function(){
+		$("")
+	}
+</script>
+
+<body>
+
+	<form>
+		<input type="text" name="id" id="id" placeholder="아이디를 입력해주세요"> 
+		<input type="password" name="pw" id="pw" placeholder="비밀번호를 입력해주세요">
+	</form>
+	<button type="button" onclick="goAjax()">전송</button>
+
+</body>
+</html>

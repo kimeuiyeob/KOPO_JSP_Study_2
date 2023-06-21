@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ page import="common.*"%>
+
+<!-- 1.문자열 저장
+	 2.Person 객체 저장 (본인이름,나이는31)  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RequestScope data check</title>
+</head>
+<body>
+
+	<%
+	request.setAttribute("str", "월요일은 역시 쉽지않아...");
+	request.setAttribute("person", new PersonDTO("김의엽", 31));
+	%>
+
+	<%
+	String str = request.getAttribute("str").toString();
+	PersonDTO person = (PersonDTO) request.getAttribute("person");
+	%>
+
+	<%="문자열 : " + str%>
+	<%="이름 : " + person.getName()%>
+	<%="나이 : " + person.getAge()%>
+
+	<form action="RequestLocation.jsp"></form>
+
+
+	<a href="RequestLocation.jsp">RequestLocation.jsp 로 가기!!</a>
+
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="model1.*"%>
+<%@ page import="java.util.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<%
+	BoardDao boardDao = new BoardDao(application); //DB열기
+	Map<String, Object> map = new HashMap<>();
+
+	String searchField = request.getParameter("searchField");
+	String searchWord = request.getParameter("searchWord");
+
+	if (searchWord != null) {
+		map.put("searchField", searchField);
+		map.put("searchWord", searchWord);
+	}
+
+	int totalCount = boardDao.selectCount(map); //해당 검색된 게시물의 총개수
+	List<BoardDto> boardDtoList = boardDao.selectList(map); //해당 검색된 게시물 전부
+
+	boardDao.JDBConnecterClose(); //DB 닫기
+	%>
+
+</body>
+</html>

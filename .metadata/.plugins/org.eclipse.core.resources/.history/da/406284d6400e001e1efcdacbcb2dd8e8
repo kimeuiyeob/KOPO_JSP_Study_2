@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page import="common.*"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<%
+	PersonDTO pPerson = (PersonDTO) (request.getAttribute("person"));
+	%>
+
+	<%="문자열 : " + request.getAttribute("str").toString()%>
+
+
+</body>
+</html>

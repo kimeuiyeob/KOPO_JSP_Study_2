@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>여기로 오겠지?</h1>
+<%
+	//해당 페이지에서 에러가 났을때 web.xml을 통해 설정된 errorCode를 통해 status로 받아와 출력한다.
+	int status = response.getStatus();
+	
+	if(status == 404) {
+		out.print("<h1>404 오류입니다.</h1>");
+	}else if(status == 500) {
+		out.print("<h1>500 오류입니다.</h1>");
+	}
+%>
+
+</body>
+</html>

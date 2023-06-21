@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="model1.*" %>
+<%@ page import="java.util.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%
+BoardDao boarDao = new BoardDao(application);
+Map<String,Object> param = new HashMap<>();
+
+String searchField = request.getParameter("searchField");  
+String searchWord = request.getParameter("searchWord");  
+
+%>
+
+</body>
+</html>

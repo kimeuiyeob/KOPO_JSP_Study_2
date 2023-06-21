@@ -1,0 +1,13 @@
+package dao;
+
+import javax.servlet.ServletContext;
+
+import common.JDBConnecter;
+
+public class MemberDao extends JDBConnecter{
+	
+	public MemberDao (ServletContext appliction) {
+		super(appliction);
+	}
+
+}

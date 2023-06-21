@@ -1,0 +1,74 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<%@ page import="Random.*" %>
+<%@ page import="java.util.*" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+.one{
+	height : 100px;
+}
+</style>
+<body>
+
+<%
+
+AclassRandom rd = new AclassRandom();
+List<String> a = new ArrayList<String>();
+a = rd.Random();
+for (int i = 0; i < a.size(); i++) {
+   String name = a.get(i) + "&nbsp;&nbsp;&nbsp;&nbsp;";
+   if (a.get(i).length() == 2) {
+      name = name + "&nbsp;&nbsp;&nbsp;";
+   }
+}
+
+out.print(a.get(0);
+
+%>
+
+<center>
+	<h1>자리 배치도</h1>
+	
+<div>
+	<span>
+		<img class="one" src="one.png"><img class="one" src="one.png" style="padding-right: 100px;">
+		<img class="one" src="one.png"><img class="one" src="one.png" >
+	</span>
+	<div>
+		<img src="table.png" style="width: 200px;padding-right: 100px;"> 
+		<img src="table.png" style="width: 200px"> 
+	</div>
+	<span>
+		<img class="one" src="one.png"><img class="one" src="one.png" style="padding-right: 100px;">
+		<img class="one" src="one.png"><img class="one" src="one.png">
+	</span>
+</div>
+
+
+<div>	
+	<span>
+		<img class="one" src="one.png"><img class="one" src="one.png" style="padding-right: 100px;">
+		<img class="one" src="one.png"><img class="one" src="one.png">
+	</span>
+	<div>
+		<img src="table.png" style="width: 200px;padding-right: 100px;"> 
+		<img src="table.png" style="width: 200px"> 
+	</div>
+	<span>
+		<img class="one" src="one.png"><img class="one" src="one.png" style="padding-right: 100px;">
+		<img class="one" src="one.png"><img class="one" src="one.png">
+	</span>
+</div>
+</center>
+
+
+
+</body>
+</html>

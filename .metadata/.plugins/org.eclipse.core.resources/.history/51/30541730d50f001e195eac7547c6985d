@@ -1,0 +1,44 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.ServletContext;
+
+import common.JDBConnecter;
+import dto.MemberDto;
+
+public class MemberDao extends JDBConnecter{
+	
+	private PreparedStatement psmt;
+	private Connection con;
+	private ResultSet rs;
+	
+	public MemberDao (ServletContext appliction) {
+		super(appliction);
+	}
+	
+	public MemberDto getMemeberDto(String memberId, String memberPass) {
+		MemberDto memberDto = new MemberDto();
+		
+		String query = "select * from member where id = ? and pass = ?";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1,memberId);
+			psmt.setString(2,memberPass);
+			rs = psmt.executeQuery();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return memberDto;
+	}
+
+}

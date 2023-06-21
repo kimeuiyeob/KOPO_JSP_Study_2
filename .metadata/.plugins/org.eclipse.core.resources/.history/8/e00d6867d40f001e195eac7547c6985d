@@ -1,0 +1,9 @@
+package dao;
+
+import common.JDBConnecter;
+
+public class MemberDao extends JDBConnecter{
+	
+	public MemberDao
+
+}

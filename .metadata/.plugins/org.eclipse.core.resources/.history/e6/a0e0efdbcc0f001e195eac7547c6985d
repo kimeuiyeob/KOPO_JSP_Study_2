@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@ page import="java.text.SimpleDateFormat" %>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%
+SimpleDateFormat sf = new SimpleDateFormat("HH:mm:ss");
+%>
+
+	<h3>세션 시간 확인</h3>
+	
+	세션 유지 시간 : <%=session.getMaxInactiveInterval() %> <br> <!-- 세션 생명 시간 -->
+	세션 아이디 : <%=session.getId() %> <br>
+	세션 요청 시각 : <%=session.getId() %> <br>
+	세션 마지막 요청 시각 : <%=session.getId() %> <br>
+
+</body>
+</html>

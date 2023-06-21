@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>여기로 오겠지>?</h1>
+<%
+	int status = response.getStatus();
+	out.print("이게 멀까 ? : " + status);
+	if(status == 404) {
+		
+	}else if(status == 500) {
+		
+	}
+%>
+
+</body>
+</html>

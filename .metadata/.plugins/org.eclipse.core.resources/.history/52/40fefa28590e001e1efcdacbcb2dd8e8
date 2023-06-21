@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>cookie</title>
+</head>
+<body>
+
+	<h3>쿠키 설정하기</h3>
+	<%
+	//쿠키 만들기
+	Cookie cookie = new Cookie("cookie", "의엽쿠키");
+
+	String uri = request.getContextPath(); //루트 경로
+	cookie.setPath(uri);
+
+	cookie.setMaxAge(60 * 60 * 24 * 365); //1년
+
+	//쿠키를 담아준다.
+	response.addCookie(cookie);
+	%>
+</body>
+</html>
