@@ -34,40 +34,39 @@ public class BoardDao extends JDBConnecter {
 		}
 		return totalCount;
 	}
-	
-	
+
 //	=================================================================================================================
-	
+
 	public List<BoardDto> selectList(Map<String, Object> map) {
-		
+
 		List<BoardDto> boardDtoList = new Vector<>();
 		String query = "select * from board";
-		
-		if(map.get("searchWord") != null) {
+
+		if (map.get("searchWord") != null) {
 			query += " where " + map.get("searchField") + " like '%" + map.get("searchWord") + "%'";
 		}
-		
+
 		query += " order by num desc";
-		
+
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
-			while(rs.next()) {
+			while (rs.next()) {
 				BoardDto boardDto = new BoardDto();
 				boardDto.setNum(rs.getString(1));
 				boardDto.setTitle(rs.getString(2));
 				boardDto.setContent(rs.getString(3));
+				boardDto.setId(rs.getString(4));
 				boardDto.setPostdate(rs.getDate("postdate"));
-				boardDto.setId(rs.getString(5));
 				boardDto.setVisitcount(rs.getString(6));
 				boardDtoList.add(boardDto);
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("게시물 조회 에러");
 		}
-		
+
 		return boardDtoList;
 	}
 

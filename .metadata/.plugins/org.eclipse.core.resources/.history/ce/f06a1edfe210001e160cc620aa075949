@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
+<%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="common.*"%>
+<%@ page import="java.util.*"%>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<%
+	String title = request.getParameter("title");
+	String content = request.getParameter("content");
+
+	System.out.println(title);
+	System.out.println(content);
+
+	/* 추가 */
+	JDBConnecter jDBConnecter = new JDBConnecter(application);
+
+	String id = "김의엽" + (int) (int) (Math.random() * 100);
+	String pass = "1234";
+	String name = "kim";
+
+	String sql = "insert into member values (?,?,?,sysdate)";
+
+	PreparedStatement psmt = jDBConnecter.con.prepareStatement(sql);
+	psmt.setString(1, id);
+	psmt.setString(2, pass);
+	psmt.setString(3, name);
+
+	int intResult = psmt.executeUpdate();
+	out.print(intResult + " 입력 완료!!");
+
+	jDBConnecter.JDBConnecterClose();
+	%>
+
+
+</body>
+</html>

@@ -11,7 +11,7 @@
 
 	<%
 	BoardDao boardDao = new BoardDao(application); //DB 열기
-	Map<String, Object> map = new HashMap<>();
+	Map<String, Object> map = new HashMap<String, Object>();
 
 	String searchField = request.getParameter("searchField");
 	String searchWord = request.getParameter("searchWord");
@@ -27,10 +27,9 @@
 	boardDao.JDBConnecterClose(); //DB 닫기
 	%>
 
-	<jsp:include page="../07Common/Link.jsp" />
 	<!-- 공통 링크 -->
+	<jsp:include page="../07Common/Link.jsp" />
 
-	<h2>목록 보기(List)</h2>
 	<!-- 검색폼 -->
 	<form method="get">
 		<table border="1" width="90%">
@@ -73,7 +72,7 @@
 			<td align="left">
 				<!--제목(+ 하이퍼링크)--> <a href="View.jsp?num=<%=dto.getNum()%>"><%=dto.getTitle()%></a>
 			</td>
-			<td align="center"><%=dto.getId()%></td>
+			<td align="center"><%=dto.getId() %></td>
 			<!--작성자 아이디-->
 			<td align="center"><%=dto.getVisitcount()%></td>
 			<!--조회수-->
@@ -86,11 +85,21 @@
 		%>
 	</table>
 	<!--목록 하단의 [글쓰기] 버튼-->
+	
+	<%
+	if(session.getAttribute("UserId") == null) {
+	}else {
+	%>
 	<table border="1" width="90%">
 		<tr align="right">
 			<td><button type="button" onclick="location.href='Write.jsp';">글쓰기</button></td>
 		</tr>
 	</table>
+	<% 
+	}
+	%>
+	
+
 
 </body>
 </html>

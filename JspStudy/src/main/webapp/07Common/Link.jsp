@@ -28,7 +28,7 @@
 					</c:otherwise>
 				</c:choose>
 				&nbsp;&nbsp;&nbsp; 
-				  <a href="List.jsp">게시판</a>
+				  <a href="../09Board/List.jsp">게시판</a>
 			</td>
 		</tr>
 	</table>
